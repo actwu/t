@@ -1,0 +1,62 @@
+<setup>
+set.title('Translation App');
+set.info('Translate);
+set.key('translation, app');
+set.view();
+set.cover(3);
+set.icon(3);
+ui();
+</setup>
+
+<script src='https://ise.web.app/load.js'></script>
+<body>
+<nav layer="4" no-m small-p bbg bol2>
+<input type="range" no-p min="1" max="4" oninput="tpg(this.value)" />
+</nav>
+
+<cont>
+<section id="kor">
+<textarea id="tK" big overlay layer="1" oninput="save('k', '#tK')" placeholder="Enter Korean text here..." style="height: 100%;"></textarea>
+</section>
+<section id="rom"hide>
+<textarea id="tR" big overlay layer="1" oninput="save('r', '#tR')" placeholder="Enter Romanized Korean text here..." style="height: 100%;"></textarea>
+</section>
+<section id="eng"hide>
+<textarea id="tE" big overlay layer="1" oninput="save('e', '#tE')" placeholder="Enter English text here..." style="height: 100%;"></textarea>
+</section>
+<section id="wrt"hide>
+<textarea id="tW" big overlay layer="1" oninput="save('w', '#tW')" placeholder="Your custom writing area..." style="height: 100%;"></textarea>
+</section>
+</cont>
+
+<style>
+textarea {height: 90%;}
+
+input[type="range"] {
+-webkit-appearance: none;
+appearance: none;
+background: var(--blue2);
+height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--blue);
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: var(--blue);
+}
+</style>
+
+<script>
+const tpg = (v) => {
+hide('#kor');
+hide('#rom');
+hide('#eng');
+hide('#wrt');
+const s = parseInt(v);
+s === 1 && show('#kor');
+s === 2 && show('#rom');
+s === 3 && show('#eng');s === 4 && show('#wrt');};window.onload = () => {save.load('k','#tK');save.load('r','#tR');save.load('e','#tE');save.load('w','#tW');};
+</script>
+</body>
